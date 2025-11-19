@@ -11,7 +11,6 @@ A Netflix-style movie browsing application built with TanStack Router, React 19,
 - ⚡ Fast development with Vite
 - 🔍 Movie search and filtering capabilities
 - 💾 TypeScript for type safety
-- 🧪 Testing setup with Vitest
 
 ## Project Structure
 
@@ -34,7 +33,7 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - TMDB API key (for movie data)
 
@@ -62,7 +61,7 @@ TMDB_AUTH_TOKEN=your_tmdb_bearer_token_here
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+The app will be available at `http://localhost:3000/fetch-movies`.
 
 ## Available Scripts
 

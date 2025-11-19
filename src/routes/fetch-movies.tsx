@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
 import type { TMDBResponse, Movie } from '../types/movie'
 
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc'
 
-async function fetchPopularMovies(): Promise<TMDBResponse> {
+
+const fetchPopularMovies = createServerFn().handler(async ():Promise<TMDBResponse>  => {
   const response = await fetch(
     API_URL,
     {
@@ -13,13 +15,13 @@ async function fetchPopularMovies(): Promise<TMDBResponse> {
       },
     }
   )
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch movies: ${response.statusText}`)
   }
-  
+
   return response.json()
-}
+})
 
 export const Route = createFileRoute('/fetch-movies')({
   component: MoviesPage,
